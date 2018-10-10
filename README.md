@@ -1,2 +1,13 @@
-# commerce-zippay
-A Craft Commerce plugin to support ZipPay as a payment gateway
+# Zip Pay for Craft Commerce
+
+Adds support for [Zip Pay](https://zip.co/) as a payment gateway.
+
+## Requirements
+
+This plugin requires Craft CMS 2.6.0 or later, and Commerce 1.0.0 or later.
+
+<h2></h2>
+
+<a href="https://verbb.io" target="_blank">
+  <img width="100" src="https://verbb.io/assets/img/verbb-pill.svg">
+</a>
