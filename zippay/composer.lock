@@ -1,0 +1,70 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fb4845b87705a2afbcd6ab72b7a44f10",
+    "packages": [
+        {
+            "name": "zipmoney/merchantapi-php",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zipMoney/merchantapi-php.git",
+                "reference": "2d45ea0b69cae571d3b436a7be12652e4cd4b488"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zipMoney/merchantapi-php/zipball/2d45ea0b69cae571d3b436a7be12652e4cd4b488",
+                "reference": "2d45ea0b69cae571d3b436a7be12652e4cd4b488",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.12",
+                "squizlabs/php_codesniffer": "~2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "zipMoney\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zipMoney Payments Pty Ltd.",
+                    "homepage": "https://github.com/zipMoney/merchantapi-php"
+                }
+            ],
+            "homepage": "http://zipmoney.com.au",
+            "keywords": [
+                "api",
+                "merchantapi",
+                "php",
+                "sdk",
+                "zipMoney",
+                "zipPay",
+                "zipcredit"
+            ],
+            "time": "2018-09-13T01:08:59+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
