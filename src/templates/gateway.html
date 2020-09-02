@@ -1,0 +1,18 @@
+{% from "_includes/forms" import textField, lightswitchField, autosuggestField %}
+
+{{ autosuggestField({
+    label: 'API Key' | t('commerce'),
+    instructions: 'Enter your Zip Pay Private Key here.' | t('zip-pay'),
+    id: 'apiKey',
+    name: 'apiKey',
+    suggestEnvVars: true,
+    value: gateway.apiKey,
+    errors: gateway.getErrors('apiKey'),
+}) }}
+
+ {{ lightswitchField({
+     label: 'Test mode?' | t('commerce'),
+     name: 'testMode',
+     on: gateway.testMode,
+     errors: gateway.getErrors('testMode'),
+ }) }}

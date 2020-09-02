@@ -1,0 +1,130 @@
+<?php
+namespace verbb\zippay\gateways;
+
+use verbb\zippay\models\ZipItem;
+use verbb\zippay\models\ZipItemBag;
+
+use Craft;
+use craft\helpers\UrlHelper;
+
+use craft\commerce\Plugin as Commerce;
+use craft\commerce\base\RequestResponseInterface;
+use craft\commerce\elements\Order;
+use craft\commerce\models\payments\BasePaymentForm;
+use craft\commerce\models\Transaction;
+use craft\commerce\omnipay\base\OffsiteGateway;
+
+use craft\web\Response;
+use craft\web\View;
+
+use Omnipay\ZipPay\RestGateway;
+use Omnipay\Common\CreditCard;
+use Omnipay\Common\Message\RequestInterface;
+use Omnipay\Common\AbstractGateway;
+
+class ZipPay extends OffsiteGateway
+{
+    // Properties
+    // =========================================================================
+
+    public $apiKey;
+    public $testMode = false;
+
+    public $sendCartInfo = true;
+
+
+    // Public Methods
+    // =========================================================================
+
+    public static function displayName(): string
+    {
+        return Craft::t('commerce', 'Zip Pay');
+    }
+
+    public function getSettingsHtml()
+    {
+        return Craft::$app->getView()->renderTemplate('commerce-zip-pay/gateway', ['gateway' => $this]);
+    }
+
+    public function completeAuthorize(Transaction $transaction): RequestResponseInterface
+    {
+        $order = $transaction->order;
+
+        // ZipPay doesn't support `cancelUrl` and tries to complete the payment. So check if the request param tells us if a failure.
+        $result = Craft::$app->getRequest()->getParam('result');
+        $checkoutId = Craft::$app->getRequest()->getParam('checkoutId');
+
+        if ($result === 'cancelled' || $result === 'declined') {
+            // Redirect back straight away
+            Craft::$app->getResponse()->redirect($order->cancelUrl);
+            Craft::$app->end();
+        }
+
+        return parent::completeAuthorize($transaction);
+    }
+
+    public function createCard(BasePaymentForm $paymentForm, Order $order = null): CreditCard
+    {
+        $card = parent::createCard($paymentForm, $order);
+
+        // Commerce doesn't seem to handle state very well, just resolving to the stateId. Why not try and
+        // set it to the `stateValue` if a valid state object can't be found?
+        $state = $card->getBillingState();
+
+        if (!$state) {
+            if ($billingAddress = $order->getBillingAddress()) {
+                $state = $billingAddress->getStateValue();
+
+                $card->setBillingState($state);
+            }
+        }
+
+        $state = $card->getShippingState();
+
+        if (!$state) {
+            if ($shippingAddress = $order->getShippingAddress()) {
+                $state = $shippingAddress->getStateValue();
+
+                $card->setShippingState($state);
+            }
+        }
+
+        return $card;
+    }
+
+
+    // Protected Methods
+    // =========================================================================
+
+    protected function createGateway(): AbstractGateway
+    {
+        $gateway = static::createOmnipayGateway($this->getGatewayClassName());
+
+        $gateway->setApiKey(Craft::parseEnv($this->apiKey));
+        $gateway->setTestMode($this->testMode);
+
+        return $gateway;
+    }
+
+    protected function prepareCompleteAuthorizeRequest($request): RequestInterface
+    {
+        // We need to attach these responses from ZipPay's authorize step
+        $result = Craft::$app->getRequest()->getParam('result');
+
+        $request['authorityType'] = 'checkout_id';
+        $request['authorityValue'] = Craft::$app->getRequest()->getParam('checkoutId');
+        $request['captureFunds'] = true;
+
+        return parent::prepareCompleteAuthorizeRequest($request);
+    }
+
+    protected function getItemBagClassName(): string
+    {
+        return ZipItemBag::class;
+    }
+
+    protected function getGatewayClassName()
+    {
+        return '\\' . RestGateway::class;
+    }
+}
