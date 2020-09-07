@@ -4,7 +4,7 @@ Adds support for [Zip Pay](https://zip.co/) as a payment gateway.
 
 ## Requirements
 
-This plugin requires Craft Commerce 3.0 or later.
+This plugin requires Craft Commerce 2.1.0 or later.
 
 ## Installation
 
