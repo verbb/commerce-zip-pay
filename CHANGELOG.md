@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1 - 2020-09-09
+
+### Fixed
+- Add support for discounts, split across line items. Zip cannot support negative line items.
+
 ## 2.0.0 - 2020-09-02
 
 ### Added
