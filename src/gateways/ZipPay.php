@@ -5,6 +5,7 @@ use verbb\zippay\models\ZipItem;
 use verbb\zippay\models\ZipItemBag;
 
 use Craft;
+use craft\helpers\ArrayHelper;
 use craft\helpers\UrlHelper;
 
 use craft\commerce\Plugin as Commerce;
@@ -116,6 +117,52 @@ class ZipPay extends OffsiteGateway
         $request['captureFunds'] = true;
 
         return parent::prepareCompleteAuthorizeRequest($request);
+    }
+
+    protected function getItemListForOrder(Order $order): array
+    {
+        $items = parent::getItemListForOrder($order);
+
+        $discounts = [];
+
+        // Zip can't handle negative line items, so check for discounts.
+        foreach ($items as $key => $item) {
+            $price = $item['price'] ?? null;
+
+            if ($price !== null and $price < 0) {
+                $discount = ArrayHelper::remove($items, $key);
+                $discounts[] = $price;
+            }
+        }
+
+        $items = array_values($items);
+
+        // Subtract the discounts until we've used it up
+        if ($discounts) {
+            $totalDiscount = array_sum($discounts);
+
+            // Start removing the discount for each line item
+            foreach ($items as $key => $item) {
+                if ($totalDiscount > 0) {
+                    continue;
+                }
+
+                $adjustedPrice = $totalDiscount + $items[$key]['price'];
+
+                // Watch if the line price goes into negative
+                if ($adjustedPrice < 0) {
+                    $adjustedPrice = 0;
+                }
+
+                // Update the total discount so we can keep removing
+                $totalDiscount = $totalDiscount + $items[$key]['price'];
+
+                // Update the item price
+                $items[$key]['price'] = $adjustedPrice;
+            }
+        }
+
+        return $items;
     }
 
     protected function getItemBagClassName(): string
