@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.2 - 2021-10-11
+
+### Added
+- Add support for `craftcms/commerce-omnipay ^3.0.0`.
+
 ## 2.0.1 - 2020-09-09
 
 ### Fixed
