@@ -28,10 +28,10 @@ class ZipPay extends OffsiteGateway
     // Properties
     // =========================================================================
 
-    public $apiKey;
-    public $testMode = false;
+    public ?string $apiKey = null;
+    public bool $testMode = false;
 
-    public $sendCartInfo = true;
+    public bool $sendCartInfo = true;
 
 
     // Public Methods
@@ -42,7 +42,7 @@ class ZipPay extends OffsiteGateway
         return Craft::t('commerce', 'Zip Pay');
     }
 
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('commerce-zip-pay/gateway', ['gateway' => $this]);
     }
@@ -172,6 +172,6 @@ class ZipPay extends OffsiteGateway
 
     protected function getGatewayClassName()
     {
-        return '\\' . RestGateway::class;
+        return '\‘ . RestGateway::class;
     }
 }

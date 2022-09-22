@@ -11,8 +11,8 @@ class ZipItem extends Item implements ItemInterface
     // Properties
     // =========================================================================
 
-    public $reference;
-    public $imageUri;
+    public ?string $reference = null;
+    public ?string $imageUri = null;
 
 
     // Public Methods
