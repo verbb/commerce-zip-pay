@@ -43,7 +43,7 @@
     "extra": {
         "name": "Zip Pay",
         "handle": "commerce-zip-pay",
-        "changelogUrl": "https://raw.githubusercontent.com/verbb/commerce-zip-pay/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/verbb/commerce-zip-pay/craft-4/CHANGELOG.md",
         "class": "verbb\\zippay\\ZipPay"
     }
 }
