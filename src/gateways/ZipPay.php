@@ -170,8 +170,8 @@ class ZipPay extends OffsiteGateway
         return ZipItemBag::class;
     }
 
-    protected function getGatewayClassName()
+    protected function getGatewayClassName(): ?string
     {
-        return '\‘ . RestGateway::class;
+        return '\\' . RestGateway::class;
     }
 }
