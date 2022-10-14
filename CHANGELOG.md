@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0 - 2022-10-14
+
+### Changed
+- Now requires PHP `8.0.2+`.
+- Now requires Craft `4.0.0+`.
+- Now requires Commerce `4.0.0+`.
+
 ## 2.0.2 - 2021-10-11
 
 ### Added
