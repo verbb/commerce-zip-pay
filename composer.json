@@ -1,6 +1,6 @@
 {
     "name": "verbb/commerce-zip-pay",
-    "description": "Zip Pay payment gateway plugin for Craft Commerce",
+    "description": "Zip Pay payment gateway plugin for Craft Commerce.",
     "type": "craft-plugin",
     "version": "3.0.0",
     "keywords": [
