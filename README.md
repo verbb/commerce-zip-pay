@@ -1,37 +1,19 @@
-# Zip Pay for Craft Commerce
-Adds support for [Zip Pay](https://zip.co/au) as a payment gateway.
+# Zip Pay for Craft CMS
+<img width="500" src="https://verbb.imgix.net/plugins/zip-pay/zip-pay-social-card.png?v=1">
 
-## Requirements
-This plugin requires Craft Commerce 3 or later.
+Zip Pay is a Craft CMS plugin that adds support for [Zip Pay](https://zip.co/au) as a payment gateway for Craft Commerce.
 
-## Installation
-You can install Commerce Zip Pay via the plugin store, or through Composer.
+## Documentation
+Visit the [Zip Pay Plugin page](https://verbb.io/craft-plugins/zip-pay) for all documentation, guides, pricing and developer resources.
 
-### Craft Plugin Store
-To install **Commerce Zip Pay**, navigate to the _Plugin Store_ section of your Craft control panel, search for `Commerce Zip Pay`, and click the _Try_ button.
+## Support
+Get in touch with us via the [Zip Pay Support page](https://verbb.io/craft-plugins/zip-pay/support) or by [creating a Github issue](https://github.com/verbb/zip-pay/issues)
 
-### Composer
-You can also add the package to your project using Composer and the command line.
-
-1. Open your terminal and go to your Craft project:
-```shell
-cd /path/to/project
-```
-
-2. Then tell Composer to require the plugin, and Craft to install it:
-```shell
-composer require verbb/commerce-zip-pay && php craft plugin/install commerce-zip-pay
-```
-
-## Setup
-To add the payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type Zip Pay.
-
-## Show your Support
+## Sponsor
 Zip Pay is licensed under the MIT license, meaning it will always be free and open source – we love free stuff! If you'd like to show your support to the plugin regardless, [Sponsor](https://github.com/sponsors/verbb) development.
 
 <h2></h2>
 
 <a href="https://verbb.io" target="_blank">
-  <img width="100" src="https://verbb.io/assets/img/verbb-pill.svg">
+    <img width="100" src="https://verbb.io/assets/img/verbb-pill.svg">
 </a>
-
