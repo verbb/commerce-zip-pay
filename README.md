@@ -1,5 +1,5 @@
 # Zip Pay for Craft CMS
-<img width="500" src="https://verbb.imgix.net/plugins/zip-pay/zip-pay-social-card.png?v=1">
+<img width="500" src="https://verbb.imgix.net/plugins/zip-pay/zip-pay-social-card.png?v=2">
 
 Zip Pay is a Craft CMS plugin that adds support for [Zip Pay](https://zip.co/au) as a payment gateway for Craft Commerce.
 
