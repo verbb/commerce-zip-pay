@@ -7,7 +7,7 @@ Zip Pay is a Craft CMS plugin that adds support for [Zip Pay](https://zip.co/au)
 Visit the [Zip Pay Plugin page](https://verbb.io/craft-plugins/zip-pay) for all documentation, guides, pricing and developer resources.
 
 ## Support
-Get in touch with us via the [Zip Pay Support page](https://verbb.io/craft-plugins/zip-pay/support) or by [creating a Github issue](https://github.com/verbb/zip-pay/issues)
+Get in touch with us via the [Zip Pay Support page](https://verbb.io/craft-plugins/zip-pay/support) or by [creating a Github issue](https://github.com/verbb/commerce-zip-pay/issues)
 
 ## Sponsor
 Zip Pay is licensed under the MIT license, meaning it will always be free and open source – we love free stuff! If you'd like to show your support to the plugin regardless, [Sponsor](https://github.com/sponsors/verbb) development.
