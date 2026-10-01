@@ -19,7 +19,7 @@ class ZipPay extends Plugin
 
     public string $schemaVersion = '1.0.0';
 
-    
+
     // Public Methods
     // =========================================================================
 

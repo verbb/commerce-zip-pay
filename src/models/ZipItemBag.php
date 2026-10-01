@@ -8,7 +8,7 @@ class ZipItemBag extends ItemBag
 {
     // Public Methods
     // =========================================================================
-    
+
     public function add($item)
     {
         if ($item instanceof ItemInterface) {
