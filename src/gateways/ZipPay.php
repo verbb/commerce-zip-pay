@@ -5,6 +5,7 @@ use verbb\zippay\models\ZipItem;
 use verbb\zippay\models\ZipItemBag;
 
 use Craft;
+use craft\helpers\App;
 use craft\helpers\ArrayHelper;
 use craft\helpers\UrlHelper;
 
@@ -101,7 +102,7 @@ class ZipPay extends OffsiteGateway
     {
         $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
-        $gateway->setApiKey(Craft::parseEnv($this->apiKey));
+        $gateway->setApiKey(App::parseEnv($this->apiKey));
         $gateway->setTestMode($this->testMode);
 
         return $gateway;
