@@ -2,7 +2,7 @@
     "name": "verbb/commerce-zip-pay",
     "description": "A Craft CMS plugin that adds Zip as a Craft Commerce payment gateway.",
     "type": "craft-plugin",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "keywords": [
         "craft",
         "cms",
